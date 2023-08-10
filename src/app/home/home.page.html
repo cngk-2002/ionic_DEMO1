@@ -1,20 +1,54 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Food Menu</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div class="btn-group">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4" class="btn-col">
+          <ion-button expand="block" class="btn" [routerLink]="'/all'">
+            <ion-img [src]="'assets/images/all.png'"></ion-img>
+          </ion-button>
+          <h4 style="font-weight: bold;">All</h4>
+        </ion-col>
+        <ion-col size="4" class="btn-col">
+          <ion-button expand="block" class="btn" [routerLink]="'/fastfood'">
+            <ion-img [src]="'assets/images/fastfood.png'"></ion-img>
+          </ion-button>
+          <h4 style="font-weight: bold;">Fast Food</h4>
+        </ion-col>
+        <ion-col size="4" class="btn-col">
+          <ion-button expand="block" class="btn" [routerLink]="'/seafood'">
+            <ion-img [src]="'assets/images/seafood.png'"></ion-img>
+          </ion-button>
+          <h4 style="font-weight: bold;">Sea Food</h4>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
+
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large" style="color: #808080">Popular</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid>
+    <ion-row class="equal-height-cards">
+      <ion-col size="6" *ngFor="let foodItem of popularFoodItems">
+        <ion-card class="ion-text-center equal-card" [routerLink]="['/detail', foodItem.id]">
+          <ion-card-header>
+            <ion-card-title style="font-weight: bold; font-size: medium;">{{ foodItem.name }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-img [src]="'assets/' + foodItem.image"></ion-img>
+            <div style="font-weight: bold; color: orange;">$ {{ foodItem.price }}</div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

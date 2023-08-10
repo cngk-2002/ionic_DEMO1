@@ -1,0 +1,19 @@
+.equal-height-cards {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .equal-height-cards ion-col {
+    display: flex;
+    flex: 1;
+  }
+  
+  .equal-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+  }
+  
+  .equal-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
